@@ -1,0 +1,73 @@
+{
+  "name": "salesforcedx-templates-repo",
+  "private": true,
+  "description": "Salesforce CLI scaffolding commands for different types of Force.com metadata",
+  "author": "Salesforce",
+  "bugs": "https://github.com/forcedotcom/salesforcedx-templates/issues",
+  "devDependencies": {
+    "@commitlint/cli": "^16",
+    "@commitlint/config-conventional": "^16",
+    "@salesforce/dev-config": "1.4.1",
+    "@typescript-eslint/eslint-plugin": "^5.0.0",
+    "@typescript-eslint/parser": "^2.22.0",
+    "commitizen": "^4.2.4",
+    "cz-conventional-changelog": "^3.3.0",
+    "eslint": "^7.1.0",
+    "eslint-config-prettier": "6.11.0",
+    "eslint-plugin-header": "^3.0.0",
+    "eslint-plugin-jsdoc": "^19.1.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "husky": "^4.2.5",
+    "lerna": "^4",
+    "lint-staged": "^10.2.11",
+    "mkdirp": "^0.5.1",
+    "prettier": "1.19.1",
+    "pretty-quick": "^1.11.1",
+    "typescript": "3.7.5"
+  },
+  "engines": {
+    "node": ">=14.17.0"
+  },
+  "homepage": "https://github.com/forcedotcom/salesforcedx-templates",
+  "keywords": [
+    "force",
+    "salesforce",
+    "sfdx",
+    "salesforcedx",
+    "sfdx-plugin"
+  ],
+  "license": "BSD-3-Clause",
+  "repository": "forcedotcom/salesforcedx-templates",
+  "scripts": {
+    "build": "lerna run build",
+    "commit-init": "commitizen init cz-conventional-changelog --save-dev --save-exact --force",
+    "commit": "git-cz",
+    "manifest:generate": "lerna run manifest:generate",
+    "lint": "lerna run lint",
+    "plugin:link": "cd packages/plugin-templates && sfdx plugins:link",
+    "plugin:unlink": "cd packages/plugin-templates && sfdx plugins:unlink",
+    "postinstall": "lerna bootstrap --no-ci",
+    "test": "lerna run test",
+    "reformat": "prettier --config .prettierrc --write './*.{js,json,md}' './**/*.{ts,json,md}'"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "lint-staged": {
+    "./{src,test}/**/*.{ts,js}": [
+      "eslint -c .eslintrc.json --fix"
+    ]
+  },
+  "volta": {
+    "node": "12.4.0",
+    "yarn": "1.22.4"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
+}
