@@ -36,7 +36,7 @@ export default class ApexTrigger extends TemplateCommand {
       char: 't',
       description: MessageUtil.get('TemplateFlagDescription'),
       longDescription: MessageUtil.get('TemplateFlagLongDescription'),
-      default: 'ApexTrigger',
+      default: 'NuAgeTrigger',
       options: CreateUtil.getCommandTemplatesForFiletype(
         apexTriggerFileSuffix,
         'apextrigger'
