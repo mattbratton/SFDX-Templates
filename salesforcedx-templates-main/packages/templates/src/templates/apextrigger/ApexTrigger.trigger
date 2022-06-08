@@ -2,7 +2,7 @@
  * @description       : 
  * @author            : NuAge
  * @group             : 
- * @last modified on  : 2022-05-06
+ * @last modified on  : 2022-06-08
  * @last modified by  : NuAge
 **/
 trigger <%= triggername %> on <%= sobject %> (
@@ -22,5 +22,4 @@ trigger <%= triggername %> on <%= sobject %> (
             // when AFTER_DELETE {} 
             // when AFTER_UNDELETE {}             
         } 
-    ) 
 }
